@@ -3,19 +3,26 @@ class Food:
     def __init__(self):
         self.consumers = []
 
-    def add_consumer(organism):
+    def add_consumer(self, organism):
         self.consumers.append(organism)
 
-    def get_consumers():
+    def get_consumers(self):
         return self.consumers
 
-    def num_consumers():
+    def num_consumers(self):
         return len(self.consumers)
+
+    def __str__(self):
+        return f"{self.consumers}"
 
 
 class Organism:
 
-    def __init__(self, chance_of_survival=0, chance_of_reproduction=0):
+    def __init__(self, strategy, chance_of_survival=0, chance_of_reproduction=0):
+        strategies = ["Dove", "Hawk"]
+
+        assert strategy in strategies
+        self.strategy = strategy
         # float 0-1
         self.chance_of_survival = chance_of_survival
         # float 0-1
@@ -32,11 +39,3 @@ class Organism:
 
     def get_chance_of_reproduction(self):
         return self.chance_of_reproduction
-
-
-class Dove(Organism):
-    pass
-
-
-class Hawk(Organism):
-    pass

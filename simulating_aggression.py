@@ -1,4 +1,4 @@
-from sim import organisms as org, simulation
+from sim import obj, simulation
 
 def main():
     # num_of_organisms = input("Number of organisms: ")
@@ -11,11 +11,11 @@ def main():
     num_of_rounds = 5
     assert num_of_doves + num_of_hawks == num_of_organisms, "Check the number of organisms!"
 
-    organisms = [org.Dove()] * num_of_doves + [org.Hawk()] * num_of_hawks
-
-    # print(type(organisms[0]) == org.Dove)
+    # print(type(organisms[0]) == obj.Dove)
     for i in range(num_of_rounds):
-        organisms = simulation.simulate_round(organisms)
+        # returns results of simulated round
+        # (num_of_doves, num_of_hawks)
+        results = simulation.simulate_round(num_of_doves, num_of_hawks)
 
 if __name__ == '__main__':
     main()
