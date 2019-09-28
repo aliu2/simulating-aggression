@@ -89,6 +89,12 @@ def evolutionize(groupings):
     return new_population
 
 
+def count_population(population):
+    num_of_doves = population.count('Dove')
+    num_of_hawks = population.count('Hawk')
+    return tuple([num_of_doves, num_of_hawks])
+
+
 def main():
     # num_of_doves = 3
     # num_of_hawks = 3
@@ -100,7 +106,8 @@ def main():
     # food = filter_food(food)
     # strategy_scores = calc_strategy_scores(food)
     groupings = evaluate_chances([1, 1, 3, 4])
-    evolutionize(groupings)
+    new_population = evolutionize(groupings)
+    num_of_organisms = count_population(new_population)
     pass
 
 
