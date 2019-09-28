@@ -39,3 +39,6 @@ class Organism:
 
     def get_chance_of_reproduction(self):
         return self.chance_of_reproduction
+
+    def get_strategy(self):
+        return self.strategy
