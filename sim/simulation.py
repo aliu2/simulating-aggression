@@ -1,14 +1,19 @@
 import random
-import obj
-import chance
+from . import obj
+from . import chance
 
 
 def simulate_round(num_of_doves, num_of_hawks):
     doves = ['Dove'] * num_of_doves
     hawks = ['Hawk'] * num_of_hawks
     organisms = doves + hawks
-    food = [obj.Food() for i in range(3)]
-    fed_organisms = find_food(organisms, food)
+    food = [obj.Food() for i in range(len(organisms))]
+    food = find_food(organisms, food)
+    fed_organisms = filter_food(food)
+    strategy_scores = calc_strategy_scores(fed_organisms)
+    groupings = evaluate_chances(strategy_scores)
+    new_population = evolutionize(groupings)
+    return count_population(new_population)
 
 
 def find_food(population, untaken_food):

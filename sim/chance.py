@@ -1,4 +1,4 @@
-import obj
+from . import obj
 
 
 def one():
