@@ -66,14 +66,27 @@ def survives(organism):
         return False
 
 
+def reproduces(organism):
+    chance = random.randint(0, 100)
+    if chance <= organism.get_chance_of_reproduction():
+        return True
+    else:
+        return False
+
+
 def evolutionize(groupings):
     new_population = []
 
     for group in groupings:
         for organism in group:
             if survives(organism):
-                pass
+                if reproduces(organism):
+                    new_population.append(organism.get_strategy())
+                    new_population.append(organism.get_strategy())
+                else:
+                    new_population.append(organism.get_strategy())
 
+    return new_population
 
 
 def main():
@@ -86,7 +99,8 @@ def main():
     # food = find_food(organisms, food)
     # food = filter_food(food)
     # strategy_scores = calc_strategy_scores(food)
-    # print(evaluate_chances([1, 1, 3, 4]))
+    groupings = evaluate_chances([1, 1, 3, 4])
+    evolutionize(groupings)
     pass
 
 
