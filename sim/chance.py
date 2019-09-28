@@ -2,23 +2,23 @@ import obj
 
 
 def one():
-    return tuple([obj.Organism("Dove", 100, 100)])
+    return tuple([obj.Organism('Dove', 100, 100)])
 
 
 def two():
-    return tuple([obj.Organism("Dove", 100, 0), obj.Organism("Dove", 100, 0)])
+    return tuple([obj.Organism('Dove', 100, 0), obj.Organism('Dove', 100, 0)])
 
 
 def three():
-    return tuple([obj.Organism("Hawk", 100, 100)])
+    return tuple([obj.Organism('Hawk', 100, 100)])
 
 
 def four():
-    return tuple([obj.Organism("Hawk", 100, 50), obj.Organism("Dove", 50, 0)])
+    return tuple([obj.Organism('Hawk', 100, 50), obj.Organism('Dove', 50, 0)])
 
 
 def six():
-    return tuple([obj.Organism("Hawk", 0, 0), obj.Organism("Hawk", 0, 0)])
+    return tuple([obj.Organism('Hawk', 0, 0), obj.Organism('Hawk', 0, 0)])
 
 
 def switch(i):

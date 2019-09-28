@@ -4,19 +4,19 @@ import chance
 
 
 def simulate_round(num_of_doves, num_of_hawks):
-    doves = [obj.Organism("Dove") for i in range(num_of_doves)]
-    hawks = [obj.Organism("Hawk") for i in range(num_of_hawks)]
+    doves = ['Dove'] * num_of_doves
+    hawks = ['Hawk'] * num_of_hawks
     organisms = doves + hawks
     food = [obj.Food() for i in range(3)]
     fed_organisms = find_food(organisms, food)
 
 
-def find_food(organisms, untaken_food):
+def find_food(population, untaken_food):
     taken_food = []
 
-    while len(organisms) > 0:
+    while len(population) > 0:
         chosen_food = random.randint(0, len(untaken_food)-1)
-        curr_organism = organisms.pop(0)
+        curr_organism = population.pop(0)
         untaken_food[chosen_food].add_consumer(curr_organism)
         if untaken_food[chosen_food].num_consumers() == 2:
             taken_food.append(untaken_food.pop(chosen_food))
@@ -35,15 +35,15 @@ def filter_food(list_of_food):
 
 def calc_strategy_scores(taken_food):
     strategy_scores = {
-        "Dove": 1,
-        "Hawk": 3
+        'Dove': 1,
+        'Hawk': 3
     }
 
     organism_scores = []
     for food in taken_food:
         score = 0
-        for organism in food.get_consumers():
-            score += strategy_scores[organism.get_strategy()]
+        for member_of_pop in food.get_consumers():
+            score += strategy_scores[member_of_pop]
         organism_scores.append(score)
 
     return organism_scores
@@ -65,14 +65,14 @@ def evolutionize(organisms):
 def main():
     # num_of_doves = 3
     # num_of_hawks = 3
-    # doves = [obj.Organism("Dove") for i in range(num_of_doves)]
-    # hawks = [obj.Organism("Hawk") for i in range(num_of_hawks)]
+    # doves = ['Dove'] * num_of_doves
+    # hawks = ['Hawk'] * num_of_hawks
     # organisms = doves + hawks
-    # food = [obj.Food() for i in range(10)]
+    # food = [obj.Food() for i in range(3)]
     # food = find_food(organisms, food)
     # food = filter_food(food)
     # strategy_scores = calc_strategy_scores(food)
-    print(evaluate_chances([1, 1, 3, 4]))
+    # print(evaluate_chances([1, 1, 3, 4]))
     pass
 
 
