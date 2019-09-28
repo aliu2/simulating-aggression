@@ -58,8 +58,22 @@ def evaluate_chances(list_of_chances):
     return result
 
 
-def evolutionize(organisms):
-    pass
+def survives(organism):
+    chance = random.randint(0, 100)
+    if chance <= organism.get_chance_of_survival():
+        return True
+    else:
+        return False
+
+
+def evolutionize(groupings):
+    new_population = []
+
+    for group in groupings:
+        for organism in group:
+            if survives(organism):
+                pass
+
 
 
 def main():
