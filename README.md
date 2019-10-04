@@ -14,6 +14,7 @@ The rules for the simulation are as follows:
 Outcomes of landing on a pair of food are illustrated in the following tables (numbers represent percentages):
 
 **Chance of survival**
+
 |      | Dove | Hawk |  
 | ---- | ---- | ---- |  
 | Dove | 100 | 100  |  
@@ -21,6 +22,7 @@ Outcomes of landing on a pair of food are illustrated in the following tables (n
 | (None) | 100 | 100 |
 
 **Chance of reproducing**
+
 |      | Dove | Hawk |  
 | ---- | ---- | ---- |  
 | Dove | 0 | 50  |  
